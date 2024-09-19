@@ -1,0 +1,75 @@
+--select customers.CustomerID, customers.CompanyName, orders.OrderID, orders.OrderDate from Customers
+--left join Orders on customers.CustomerID = orders.CustomerID
+
+--select Suppliers.SupplierID, Products.ProductName from Suppliers
+--left join Products on Suppliers.SupplierID = Products.SupplierID
+
+--select Employees.EmployeeID, Employees.FirstName, Employees.LastName, orders.OrderID from orders
+--left join Employees on orders.EmployeeID = employees.EmployeeID
+
+--select Customers.CompanyName, orders.OrderID from Customers
+--full outer join orders on Customers.CustomerID = Orders.CustomerID
+
+--select products.ProductName, Categories.CategoryName from Products
+--cross join Categories
+
+--select Customers.CompanyName, orders.OrderID, orders.OrderDate, Employees.FirstName, Employees.LastName from Orders
+--join customers on orders.CustomerID = Customers.CustomerID
+--join Employees on orders.EmployeeID = Employees.EmployeeID
+--where orders.OrderDate between '1998-01-01' and '1998-12-31'
+
+--select customers.CompanyName, count(orders.OrderID) from Customers
+--join orders on Customers.CustomerID = orders.CustomerID
+--GROUP by Customers.CompanyName
+--HAVING COUNT(orders.OrderID)>5
+
+--select Products.ProductName, sum('Order Details'.quantity) as 'Toplam Satılan Adet', ('Order Details'.UnitPrice* 'Order Details'.Quantity) as 'Toplam Satış Miktarı' from 'Order Details'
+--join Products on 'Order Details'.ProductID = Products.ProductID
+--GROUP by Products.ProductName
+
+--select Customers.CompanyName, Orders.OrderID from Customers
+--left join Orders on Customers.CustomerID = Orders.CustomerID
+--where Customers.CompanyName LIKE 'B%'
+
+--select Categories.CategoryName, Products.ProductName from Categories
+--left join Products on Categories.CategoryID = Products.CategoryID
+--where Products.ProductName is NULL
+
+--select concat(e1.FirstName,' ', e1.LastName) as 'Çalışan', concat(e2.FirstName,' ', e2.LastName) as 'Yönetici' from Employees e1
+--left join Employees e2 on e1.ReportsTo = e2.EmployeeID
+
+--SELECT productid, productname, categoryid, MAX(unitprice) AS 'En pahalı ürün' FROM Products
+--GROUP by categoryid
+
+--select * from Orders
+--join 'Order Details' on orders.OrderID = 'Order Details'.OrderID
+--order by Orders.OrderID ASC
+
+--select Employees.FirstName, Employees.LastName, count(orders.OrderID) AS 'Toplam Sipariş Sayısı' from Employees
+--left join orders on Employees.EmployeeID = Orders.EmployeeID
+--GROUP by Employees.FirstName, Employees.LastName
+
+--select productid, categoryid, sum(unitprice) as 'Total Fiyat' from Products
+--GROUP by categoryid
+--order by 'Total Fiyat' DESC
+
+--select Products.ProductName, Products.UnitPrice, Suppliers.SupplierID from Products
+--join Suppliers on Products.SupplierID = Suppliers.SupplierID
+--order by Products.UnitPrice DESC
+
+--SELECT Employees.EmployeeID, Orders.OrderID, MAX(Orders.OrderDate) FROM Orders
+--left join Employees on Orders.EmployeeID = Employees.EmployeeID
+--GROUP by Employees.EmployeeID
+
+--select productid, unitprice from Products
+--GROUP by unitprice
+--having unitprice>20
+
+--select Customers.CompanyName, Orders.OrderID, Orders.OrderDate from Orders
+--join Customers on orders.CustomerID = Customers.CustomerID
+--where orders.OrderDate BETWEEN '1997-01-01' and '1998-01-01'
+
+
+--select Customers.CompanyName, orders.OrderID from Customers
+--left join orders on Customers.CustomerID = orders.CustomerID
+--where orders.OrderID is NULL
